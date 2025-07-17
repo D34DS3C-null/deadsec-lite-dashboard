@@ -27,21 +27,21 @@ const Index = () => {
 
   const startDiagnostic = (module: keyof typeof moduleStatuses) => {
     setModuleStatuses(prev => ({ ...prev, [module]: 'running' }));
-    toast.info(`INITIATING ${module.toUpperCase()} SWEEP...`, {
-      description: "Tactical analysis in progress. Stand by for mission results."
+    toast.info(`INICIANDO VARREDURA ${module.toUpperCase()}...`, {
+      description: "Análise tática em progresso. Aguarde os resultados da missão."
     });
     
     setTimeout(() => {
       setModuleStatuses(prev => ({ ...prev, [module]: 'completed' }));
-      toast.success(`${module.toUpperCase()} MISSION COMPLETE`, {
-        description: "Intelligence gathered. Check tactical reports for detailed intel."
+      toast.success(`MISSÃO ${module.toUpperCase()} CONCLUÍDA`, {
+        description: "Inteligência coletada. Verifique os relatórios táticos para intel detalhado."
       });
     }, 3000);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-green-400 font-mono overflow-hidden">
-      {/* Military Grid Overlay */}
+      {/* Grade Militar de Fundo */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -52,7 +52,7 @@ const Index = () => {
         }} />
       </div>
 
-      {/* Scanlines Effect */}
+      {/* Efeito de Linhas de Varredura */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent animate-pulse" />
       </div>
@@ -60,23 +60,23 @@ const Index = () => {
       <MilitaryHeader currentTime={currentTime} />
 
       <main className="container mx-auto px-6 py-4 relative z-10">
-        {/* Operational Status Bar */}
+        {/* Barra de Status Operacional */}
         <div className="mb-6">
           <OperationalStatus />
         </div>
 
-        {/* Main Command Grid */}
+        {/* Grade Principal de Comando */}
         <div className="grid gap-6">
-          {/* Situational Awareness */}
+          {/* Consciência Situacional */}
           <section className="border border-green-500/30 bg-black/40 backdrop-blur-sm rounded-lg p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <Radar className="text-green-400 animate-spin" size={24} />
                 <div>
                   <h2 className="text-xl font-bold text-green-400 tracking-wider">
-                    [ SITUATIONAL AWARENESS ]
+                    [ CONSCIÊNCIA SITUACIONAL ]
                   </h2>
-                  <p className="text-green-300/70 text-sm">Real-time battlefield intelligence</p>
+                  <p className="text-green-300/70 text-sm">Inteligência do campo de batalha em tempo real</p>
                 </div>
               </div>
               <ThreatLevel />
@@ -84,21 +84,21 @@ const Index = () => {
             <SystemMetrics />
           </section>
 
-          {/* Mission Modules */}
+          {/* Módulos de Missão */}
           <section className="border border-amber-500/30 bg-amber-950/20 backdrop-blur-sm rounded-lg p-6">
             <div className="flex items-center gap-3 mb-6">
               <Target className="text-amber-400" size={24} />
               <div>
                 <h2 className="text-xl font-bold text-amber-400 tracking-wider">
-                  [ TACTICAL OPERATIONS ]
+                  [ OPERAÇÕES TÁTICAS ]
                 </h2>
-                <p className="text-amber-300/70 text-sm">Execute diagnostic missions</p>
+                <p className="text-amber-300/70 text-sm">Executar missões de diagnóstico</p>
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <DiagnosticModule
-                title="RECON SWEEP"
-                description="Deep system reconnaissance and performance analysis"
+                title="VARREDURA RECON"
+                description="Reconhecimento profundo do sistema e análise de performance"
                 icon={<Eye size={24} />}
                 status={moduleStatuses.performance}
                 lastRun="15-JAN-24 14:30:00 ZULU"
@@ -106,8 +106,8 @@ const Index = () => {
                 militaryType="recon"
               />
               <DiagnosticModule
-                title="THREAT ASSESSMENT"
-                description="Security vulnerability scan and threat detection"
+                title="AVALIAÇÃO DE AMEAÇAS"
+                description="Varredura de vulnerabilidades e detecção de ameaças de segurança"
                 icon={<Shield size={24} />}
                 status={moduleStatuses.security}
                 lastRun="15-JAN-24 13:15:00 ZULU"
@@ -115,8 +115,8 @@ const Index = () => {
                 militaryType="security"
               />
               <DiagnosticModule
-                title="COMMS CHECK"
-                description="Network connectivity and communication systems test"
+                title="VERIFICAÇÃO COMMS"
+                description="Teste de conectividade de rede e sistemas de comunicação"
                 icon={<Satellite size={24} />}
                 status={moduleStatuses.network}
                 lastRun="15-JAN-24 12:45:00 ZULU"
@@ -126,13 +126,13 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Intelligence Center */}
+          {/* Centro de Inteligência */}
           <div className="grid lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 border border-blue-500/30 bg-blue-950/20 backdrop-blur-sm rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Activity className="text-blue-400" size={20} />
                 <h3 className="text-lg font-bold text-blue-400 tracking-wider">
-                  [ INTELLIGENCE CENTER ]
+                  [ CENTRO DE INTELIGÊNCIA ]
                 </h3>
               </div>
               <ReportViewer />
@@ -141,7 +141,7 @@ const Index = () => {
               <div className="flex items-center gap-3 mb-4">
                 <AlertTriangle className="text-red-400" size={20} />
                 <h3 className="text-lg font-bold text-red-400 tracking-wider">
-                  [ THREAT BOARD ]
+                  [ PAINEL DE AMEAÇAS ]
                 </h3>
               </div>
               <AlertSystem />
@@ -150,16 +150,16 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Command Footer */}
+      {/* Rodapé de Comando */}
       <footer className="border-t border-green-500/30 bg-black/60 backdrop-blur-sm mt-8">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between text-sm text-green-400/80">
             <div className="flex items-center gap-4">
               <Lock size={16} />
-              <span>CLASSIFIED // DEADSEC TACTICAL SUITE v2.0</span>
+              <span>CLASSIFICADO // SUÍTE TÁTICA DEADSEC v2.0</span>
             </div>
             <div className="flex items-center gap-4">
-              <span>STATUS: OPERATIONAL</span>
+              <span>STATUS: OPERACIONAL</span>
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             </div>
           </div>

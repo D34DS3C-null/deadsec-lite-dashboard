@@ -4,10 +4,10 @@ import { Shield, Wifi, Zap, HardDrive, AlertTriangle } from 'lucide-react';
 
 const OperationalStatus = () => {
   const systems = [
-    { name: 'DEFENSE GRID', status: 'ACTIVE', icon: Shield, color: 'text-green-400' },
-    { name: 'COMMS ARRAY', status: 'NOMINAL', icon: Wifi, color: 'text-blue-400' },
-    { name: 'POWER CORE', status: 'OPTIMAL', icon: Zap, color: 'text-green-400' },
-    { name: 'DATA VAULT', status: 'SECURE', icon: HardDrive, color: 'text-cyan-400' },
+    { name: 'GRADE DEFENSIVA', status: 'ATIVO', icon: Shield, color: 'text-green-400' },
+    { name: 'ARRAY COMMS', status: 'NOMINAL', icon: Wifi, color: 'text-blue-400' },
+    { name: 'NÚCLEO ENERGIA', status: 'ÓTIMO', icon: Zap, color: 'text-green-400' },
+    { name: 'COFRE DADOS', status: 'SEGURO', icon: HardDrive, color: 'text-cyan-400' },
   ];
 
   return (
@@ -19,7 +19,7 @@ const OperationalStatus = () => {
             key={system.name}
             className="border border-green-500/30 bg-black/40 backdrop-blur-sm rounded-lg p-4 relative overflow-hidden"
           >
-            {/* System Status Indicator */}
+            {/* Indicador de Status do Sistema */}
             <div className="flex items-center justify-between mb-3">
               <Icon className={`${system.color} animate-pulse`} size={20} />
               <div className={`w-2 h-2 ${system.color.replace('text-', 'bg-')} rounded-full animate-ping`}></div>
@@ -34,7 +34,7 @@ const OperationalStatus = () => {
               </div>
             </div>
 
-            {/* Subtle scan line effect */}
+            {/* Efeito sutil de linha de varredura */}
             <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400/50 to-transparent animate-pulse"></div>
           </div>
         );

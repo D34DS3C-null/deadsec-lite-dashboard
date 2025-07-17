@@ -28,7 +28,7 @@ const Metric = ({ icon, label, value, status, percentage }: MetricProps) => {
 
   return (
     <div className={`border ${statusConfig[status].color} rounded-lg p-4 backdrop-blur-sm relative overflow-hidden`}>
-      {/* Scan line effect */}
+      {/* Efeito de linha de varredura */}
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-green-400/50 to-transparent animate-pulse"></div>
       
       <div className="flex items-center justify-between mb-3">
@@ -49,7 +49,7 @@ const Metric = ({ icon, label, value, status, percentage }: MetricProps) => {
         </div>
       </div>
 
-      {/* Progress bar if percentage is provided */}
+      {/* Barra de progresso se a porcentagem for fornecida */}
       {percentage && (
         <div className="w-full bg-gray-800/50 rounded-full h-1">
           <div 
@@ -67,29 +67,29 @@ const SystemMetrics = () => {
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
       <Metric
         icon={<Cpu size={20} />}
-        label="CPU Core"
+        label="Núcleo CPU"
         value="23%"
         status="optimal"
         percentage={23}
       />
       <Metric
         icon={<Activity size={20} />}
-        label="Memory Bank"
+        label="Banco Memória"
         value="4.2/16 GB"
         status="optimal"
         percentage={26}
       />
       <Metric
         icon={<HardDrive size={20} />}
-        label="Storage Array"
+        label="Array Armazen."
         value="342/500 GB"
         status="caution"
         percentage={68}
       />
       <Metric
         icon={<Wifi size={20} />}
-        label="Network Link"
-        value="SECURED"
+        label="Link Rede"
+        value="SEGURO"
         status="optimal"
       />
     </div>

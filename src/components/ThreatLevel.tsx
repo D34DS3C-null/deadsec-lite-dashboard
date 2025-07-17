@@ -3,8 +3,8 @@ import React from 'react';
 import { AlertTriangle, Shield } from 'lucide-react';
 
 const ThreatLevel = () => {
-  const threatLevel = 'DEFCON 3'; // Could be dynamic
-  const threatColor = 'text-yellow-400'; // Green, Yellow, Orange, Red based on level
+  const threatLevel = 'DEFCON 3';
+  const threatColor = 'text-yellow-400';
   const bgColor = 'bg-yellow-900/30';
 
   return (
@@ -12,7 +12,7 @@ const ThreatLevel = () => {
       <div className="flex items-center gap-3 mb-2">
         <AlertTriangle className={threatColor} size={20} />
         <span className="text-xs text-yellow-300/80 font-bold tracking-wider">
-          THREAT ASSESSMENT
+          AVALIAÇÃO DE AMEAÇAS
         </span>
       </div>
       
@@ -21,10 +21,10 @@ const ThreatLevel = () => {
       </div>
       
       <div className="text-xs text-yellow-300/60">
-        ELEVATED AWARENESS
+        CONSCIÊNCIA ELEVADA
       </div>
 
-      {/* Threat Level Bars */}
+      {/* Barras de Nível de Ameaça */}
       <div className="flex gap-1 mt-3">
         {[1, 2, 3, 4, 5].map((level) => (
           <div 

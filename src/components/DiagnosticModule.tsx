@@ -34,9 +34,9 @@ const DiagnosticModule = ({ title, description, icon, status, lastRun, onStart, 
 
   const statusConfig = {
     idle: { color: 'text-gray-400', status: 'STANDBY' },
-    running: { color: 'text-yellow-400', status: 'ACTIVE' },
-    completed: { color: 'text-green-400', status: 'COMPLETE' },
-    warning: { color: 'text-orange-400', status: 'ALERT' }
+    running: { color: 'text-yellow-400', status: 'ATIVO' },
+    completed: { color: 'text-green-400', status: 'COMPLETO' },
+    warning: { color: 'text-orange-400', status: 'ALERTA' }
   };
 
   const StatusIcon = () => {
@@ -50,10 +50,10 @@ const DiagnosticModule = ({ title, description, icon, status, lastRun, onStart, 
 
   return (
     <div className={`${typeConfig[militaryType].primary} border rounded-lg p-6 transition-all hover:border-opacity-60 relative overflow-hidden backdrop-blur-sm`}>
-      {/* Mission Classification Strip */}
+      {/* Faixa de Classificação da Missão */}
       <div className={`absolute top-0 left-0 w-full h-1 ${typeConfig[militaryType].accent.replace('text-', 'bg-')} opacity-50`}></div>
       
-      {/* Scan line effect */}
+      {/* Efeito de linha de varredura */}
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-current to-transparent animate-pulse opacity-30"></div>
 
       <div className="flex items-start justify-between mb-4">
@@ -77,7 +77,7 @@ const DiagnosticModule = ({ title, description, icon, status, lastRun, onStart, 
       <div className="flex items-center justify-between">
         {lastRun && (
           <div className="text-xs text-gray-400 font-mono">
-            <span className="text-gray-500">LAST EXEC:</span>
+            <span className="text-gray-500">ÚLT. EXEC:</span>
             <br />
             <span>{lastRun}</span>
           </div>
@@ -89,11 +89,11 @@ const DiagnosticModule = ({ title, description, icon, status, lastRun, onStart, 
           size="sm"
         >
           <Play size={14} className="mr-2" />
-          {status === 'running' ? 'EXECUTING...' : 'LAUNCH'}
+          {status === 'running' ? 'EXECUTANDO...' : 'LANÇAR'}
         </Button>
       </div>
 
-      {/* Mission Progress Indicator */}
+      {/* Indicador de Progresso da Missão */}
       {status === 'running' && (
         <div className="mt-4 w-full bg-gray-800/50 rounded-full h-1">
           <div className={`h-1 rounded-full ${typeConfig[militaryType].accent.replace('text-', 'bg-')} animate-pulse`} style={{ width: '60%' }}></div>

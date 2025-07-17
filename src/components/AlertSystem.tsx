@@ -15,21 +15,21 @@ const mockAlerts: SystemAlert[] = [
   {
     id: '1',
     type: 'warning',
-    message: 'Disk space running low on C: drive (68% used)',
+    message: 'Espaço em disco baixo na unidade C: (68% usado)',
     timestamp: '14:32',
     dismissible: true
   },
   {
     id: '2',
     type: 'info',
-    message: 'System diagnostic completed successfully',
+    message: 'Diagnóstico do sistema concluído com sucesso',
     timestamp: '14:30',
     dismissible: true
   },
   {
     id: '3',
     type: 'error',
-    message: 'Failed to connect to security update server',
+    message: 'Falha ao conectar com servidor de atualizações de segurança',
     timestamp: '14:25',
     dismissible: true
   }
@@ -60,7 +60,7 @@ const AlertSystem = () => {
     <div className="space-y-3">
       <h3 className="text-lg font-semibold text-white font-mono flex items-center gap-2 mb-4">
         <AlertTriangle size={20} />
-        System Alerts
+        Alertas do Sistema
       </h3>
       {mockAlerts.map((alert) => (
         <Alert key={alert.id} className={`${getAlertColor(alert.type)} border`}>

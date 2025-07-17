@@ -18,20 +18,20 @@ interface Report {
 const mockReports: Report[] = [
   {
     id: '1',
-    title: 'System Performance Analysis',
+    title: 'Análise de Performance do Sistema',
     date: '2024-01-15 14:30',
     type: 'performance',
-    summary: 'Overall system performance is optimal. CPU usage within normal ranges.',
-    details: '# Performance Report\n\n## CPU Analysis\n- Average Usage: 23%\n- Peak Usage: 67%\n- Temperature: 45°C\n\n## Memory Analysis\n- Usage: 4.2/16 GB (26%)\n- Available: 11.8 GB\n- Swap Usage: 0 GB',
+    summary: 'Performance geral do sistema ótima. Uso de CPU dentro dos parâmetros normais.',
+    details: '# Relatório de Performance\n\n## Análise de CPU\n- Uso Médio: 23%\n- Pico de Uso: 67%\n- Temperatura: 45°C\n\n## Análise de Memória\n- Uso: 4.2/16 GB (26%)\n- Disponível: 11.8 GB\n- Uso de Swap: 0 GB',
     severity: 'low'
   },
   {
     id: '2',
-    title: 'Security Vulnerability Scan',
+    title: 'Varredura de Vulnerabilidades de Segurança',
     date: '2024-01-15 13:15',
     type: 'security',
-    summary: 'Found 3 potential security issues. Recommend immediate attention.',
-    details: '# Security Report\n\n## Vulnerabilities Found\n- **High**: Outdated SSL certificates\n- **Medium**: Weak password policy\n- **Low**: Unused open ports\n\n## Recommendations\n1. Update SSL certificates\n2. Implement stronger password requirements\n3. Close unnecessary ports',
+    summary: 'Encontradas 3 questões de segurança potenciais. Recomenda-se atenção imediata.',
+    details: '# Relatório de Segurança\n\n## Vulnerabilidades Encontradas\n- **Alta**: Certificados SSL desatualizados\n- **Média**: Política de senhas fraca\n- **Baixa**: Portas abertas não utilizadas\n\n## Recomendações\n1. Atualizar certificados SSL\n2. Implementar requisitos de senha mais fortes\n3. Fechar portas desnecessárias',
     severity: 'high'
   }
 ];
@@ -51,22 +51,34 @@ const ReportViewer = () => {
     network: 'text-green-400'
   };
 
+  const severityLabels = {
+    low: 'BAIXA',
+    medium: 'MÉDIA',
+    high: 'ALTA'
+  };
+
+  const typeLabels = {
+    performance: 'PERFORMANCE',
+    security: 'SEGURANÇA',
+    network: 'REDE'
+  };
+
   return (
     <Card className="bg-gray-900/50 border-gray-700">
       <CardHeader>
         <CardTitle className="text-white font-mono flex items-center gap-2">
           <FileText size={20} />
-          Recent Reports
+          Relatórios Recentes
         </CardTitle>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="list" className="w-full">
           <TabsList className="bg-gray-800 border-gray-700">
             <TabsTrigger value="list" className="text-gray-300 data-[state=active]:text-white font-mono">
-              Reports List
+              Lista de Relatórios
             </TabsTrigger>
             <TabsTrigger value="viewer" className="text-gray-300 data-[state=active]:text-white font-mono">
-              Report Viewer
+              Visualizador de Relatórios
             </TabsTrigger>
           </TabsList>
           
@@ -80,10 +92,10 @@ const ReportViewer = () => {
                   </div>
                   <div className="flex gap-2">
                     <span className={`px-2 py-1 rounded text-xs font-mono ${severityColors[report.severity]}`}>
-                      {report.severity.toUpperCase()}
+                      {severityLabels[report.severity]}
                     </span>
                     <span className={`text-xs font-mono ${typeColors[report.type]}`}>
-                      {report.type.toUpperCase()}
+                      {typeLabels[report.type]}
                     </span>
                   </div>
                 </div>
@@ -97,7 +109,7 @@ const ReportViewer = () => {
                       onClick={() => setSelectedReport(report)}
                     >
                       <Eye size={14} className="mr-1" />
-                      View
+                      Visualizar
                     </Button>
                     <Button 
                       size="sm" 
@@ -105,7 +117,7 @@ const ReportViewer = () => {
                       className="border-gray-600 text-gray-300 hover:text-white hover:bg-gray-700"
                     >
                       <Download size={14} className="mr-1" />
-                      Export
+                      Exportar
                     </Button>
                   </div>
                 </div>
@@ -119,9 +131,9 @@ const ReportViewer = () => {
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-white font-mono mb-2">{selectedReport.title}</h3>
                   <div className="flex gap-4 text-sm text-gray-400 font-mono">
-                    <span>Date: {selectedReport.date}</span>
-                    <span>Type: {selectedReport.type}</span>
-                    <span>Severity: {selectedReport.severity}</span>
+                    <span>Data: {selectedReport.date}</span>
+                    <span>Tipo: {typeLabels[selectedReport.type]}</span>
+                    <span>Severidade: {severityLabels[selectedReport.severity]}</span>
                   </div>
                 </div>
                 <div className="prose prose-invert prose-sm max-w-none">
@@ -133,7 +145,7 @@ const ReportViewer = () => {
             ) : (
               <div className="text-center text-gray-400 py-8">
                 <FileText size={48} className="mx-auto mb-4 opacity-50" />
-                <p className="font-mono">Select a report from the list to view details</p>
+                <p className="font-mono">Selecione um relatório da lista para visualizar detalhes</p>
               </div>
             )}
           </TabsContent>

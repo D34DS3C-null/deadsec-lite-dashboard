@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7a44462f-46cb-416b-8d47-ad0078078027) and start prompting.
+Simply visit the [Lovable Project]([https://lovable.dev/projects/7a44462f-46cb-416b-8d47-ad0078078027](https://preview--deadsec-lite-dashboard.lovable.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
